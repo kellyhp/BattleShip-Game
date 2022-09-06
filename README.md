@@ -12,7 +12,7 @@ Project is created with:
 - CMake (VERSION 3.15.3)
 - CMAKE 14
 
-##Setup 
+## Setup 
 To run this project, run any IDE for C/C++ and write out the file name that hold all the information of the boundaries of the board and name of the ships that holds the size too in the runtime command line arguments.
 For example:
 

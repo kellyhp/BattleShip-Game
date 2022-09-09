@@ -10,6 +10,7 @@ void play_game(char *argv[]);
 
 class Ships {
 public:
+    // ship name and size
     //Ships(char name, int length): name(name), length(length) {}
     Ships(): name(0), length(0) {};
     void setName (char a) {
@@ -30,7 +31,7 @@ private:
 
 };
 ///////////////////////////////////////////////////////////
-class Player {
+class Player { // each player has access to their own individual board with all the ships included
 public:
 
     void setName(std::string a) {
@@ -79,12 +80,6 @@ private:
 /////////////////////////////////////////////////////////
 class Round {
 public:
-
-    // function that displays board
-    // - needs to take in both players and use player.get_board and display it using function implemented here
-    // - display other player's board without letters X and O
-    // - display own player's board with everything
-    // - just to meet the requirement
 
     void disp_board(Player &p1, Player &p2, int numRows, int numCols) {
         std::vector<std::vector<char>> boardP = p1.get_board();

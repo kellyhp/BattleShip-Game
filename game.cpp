@@ -9,6 +9,7 @@
 bool ascii_sort(Ships a, Ships b) { return a.getName() < b.getName(); }
 
 bool check_board(Player &p, char check) {
+    // functions that checks whether there was a ship destroyed
     std::vector<std::vector<char>> board = p.get_board();
     int answer = 0;
     for(int i = 0; i < board.size(); i++) {
@@ -26,6 +27,7 @@ bool check_board(Player &p, char check) {
 }
 
 void turn(Player &fire, Player &shot, int numRows, int numCols) {
+    //function used per player as a firing board 
     std::string firing = fire.getName();
     std::string shotAt = shot.getName();
     std::vector<std::vector<char>>& board = shot.get_board();
@@ -55,7 +57,7 @@ void turn(Player &fire, Player &shot, int numRows, int numCols) {
             }
         } while (!case2);
 
-        if (case1 == true) {
+        if (case1 == true) { // valid boundaries check
             if ((x > numRows - 1) || (y > numCols - 1) ||
                 (x < 0) || (y < 0)) {
                 case1 = false;
@@ -68,7 +70,7 @@ void turn(Player &fire, Player &shot, int numRows, int numCols) {
         }
 
         if(case1 == true) {
-            check = shot.check_board(x, y);
+            check = shot.check_board(x, y);  // calls shot checker(check_board) and checks if a whole ship is gone
             if (check == '*') {
                 shot.edit_board(x, y, 'O');
                 curr.disp_board(fire, shot, numRows, numCols);

@@ -10,6 +10,7 @@
 #include "board.h"
 
 void read_file(char *argv[], int &numCols, int &numRows, std::vector<Ships> &shipList) {
+    // opens file to read the dimensions of the battleship board, number of ships to create, name and size of ship
     std::string filename = argv[1];
     std::ifstream myFile;
     myFile.open(filename);

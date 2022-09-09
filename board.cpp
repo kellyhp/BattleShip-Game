@@ -30,6 +30,8 @@ void print_board(std::vector<std::vector<char>> board, int numRows, int numCols)
 }
 
 char setChoice() {
+    // function made to settle whether the ship will be placed horizontally or vertically but only takes two letters from user input
+    // rejects any input that is not h or v (uppercase/lowercase)
     std::string c;
     std::cout << "Enter h for horizontal or v for vertical" << std::endl;
     std::cout << "Your choice: ";
@@ -47,6 +49,7 @@ char setChoice() {
 
 
 void add_ship_to_board(Ships& ship, Player* player, int numRows, int numCols) {
+    // function is accessible for every player -> each player holds an individual board with all the ships available for placement
     std::vector<std::vector<char>>& board = player->get_board();
     std::string line;
     int placement, x, y;
@@ -57,9 +60,9 @@ void add_ship_to_board(Ships& ship, Player* player, int numRows, int numCols) {
                   << std::endl;
         choice = setChoice();
         if (choice != 'v' && choice != 'V' && choice != 'H' && choice != 'h') {
-            case1 = false;
+            case1 = false; // continue
         } else {
-            case1 = true;
+            case1 = true;  // will repeat until user input is correct
         }
 
         if (case1 == true) {
@@ -79,7 +82,7 @@ void add_ship_to_board(Ships& ship, Player* player, int numRows, int numCols) {
                 case2 = true;
             }
             else {
-                case2 = false;
+                case2 = false;  // checks whether the boundaries from user input are numbers -> will continue to ask if invalid
             }
             if (!case2) {
                 case1 = false;
@@ -92,7 +95,7 @@ void add_ship_to_board(Ships& ship, Player* player, int numRows, int numCols) {
         bool case5 = true;
         bool case6 = true;
         if (case1 == true) {
-            if (x < 0 || x > numRows) {
+            if (x < 0 || x > numRows) { // checks if out of bounds
                 case4 = false;
             }
             if (y < 0 || y > numCols) {
@@ -105,7 +108,7 @@ void add_ship_to_board(Ships& ship, Player* player, int numRows, int numCols) {
                 case1 = false;
             }
             if (case1 == true) {
-                if (board[x][y] != '*') {
+                if (board[x][y] != '*') { // checks if board is not taken in all spaces 
                     case5 = false;
                 }
                 if (placement == 1) {
@@ -140,5 +143,5 @@ void add_ship_to_board(Ships& ship, Player* player, int numRows, int numCols) {
                 }
             }
         }
-    } while (!case1);
+    } while (!case1);  // will continue to ask for valid placement until user input is valid
 }

@@ -8,7 +8,7 @@ This project is a scratch version of a Battleship game where two players will fi
 
 ## Technologies
 Project is created with:
-- CLion 2022.2.1 (can use any other IDE that is C++/C compatible
+- CLion 2022.2.1 (can use any other IDE that is C++/C compatible)
 - CMake (VERSION 3.15.3)
 - CMAKE 14
 
